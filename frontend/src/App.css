@@ -1,0 +1,23 @@
+/* CSS Reset Style Boilerplate */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+body {
+  text-align: left;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: 1.15rem;
+  font-family: "Poppins", sans-serif;
+}
+/* End  */
