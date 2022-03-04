@@ -1,12 +1,13 @@
 import React from "react";
 import "./homepage.css";
+import NavBar from "../Navbar/NavBar";
 
 function HomePage() {
   return (
-   <section>
-       EV-Savings Homepage
-   </section>
-  )
+    <section className="homepage-container">
+      <NavBar />
+    </section>
+  );
 }
 
-export default HomePage
+export default HomePage;
