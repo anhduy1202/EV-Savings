@@ -1,0 +1,7 @@
+.homepage-container {
+  height: 100vh;
+  background-image: url("../../assets/ev-background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

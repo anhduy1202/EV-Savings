@@ -7,6 +7,24 @@
   margin: 0;
 }
 
+:root {
+  /* Color pallette */
+  --color-green: #2CFFBA;
+  --color-dark-green: #151924;
+
+  /* Font style */
+  --font-sm: 0.75rem;
+  --font-md: 1.15rem;
+  --font-xlg: 2.15rem;
+
+  /* Font weight */
+  --font-bold: 600;
+  --font-xbold: 700;
+
+  /* Font family */
+  --font-poppins: "Poppins", sans-serif;
+}
+
 html,
 body {
   margin: 0;
@@ -17,7 +35,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-size: 1.15rem;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--font-md);
+  font-family: var(--font-poppins);
 }
 /* End  */
