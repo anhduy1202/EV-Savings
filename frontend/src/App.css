@@ -11,9 +11,15 @@
   /* Color pallette */
   --color-green: #2CFFBA;
   --color-dark-green: #151924;
+  --color-white: #F9F9F9;
+  --color-light-blue: #6EB9E3;
+
+  /* Border radius */
+  --border-rounded: 14px;
 
   /* Font style */
   --font-sm: 0.75rem;
+  --font-smd: 1rem;
   --font-md: 1.15rem;
   --font-xlg: 2.15rem;
 
@@ -35,6 +41,8 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  color: var(--color-green);
+  background-color: var(--color-dark-green);
   font-size: var(--font-md);
   font-family: var(--font-poppins);
 }
