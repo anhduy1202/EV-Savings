@@ -1,0 +1,61 @@
+.auth-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  height: 80vh;
+}
+
+.auth-title {
+  font-size: var(--font-xlg);
+  font-weight: var(--font-xbold);
+}
+.auth-form {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  align-items: flex-start;
+}
+.auth-form > input {
+  color: white;
+  width: 100%;
+  font-size: var(--font-md);
+  background-color: transparent;
+  border: none;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--color-green);
+}
+.auth-form > input:focus {
+  outline: none;
+}
+.auth-form > label {
+  font-size: var(--font-smd);
+  font-weight: var(--font-bold);
+}
+.auth-form > button {
+  padding: 0.25em;
+  margin-bottom: 0.75em;
+  font-weight: var(--font-xbold);
+  font-size: var(--font-md);
+  width: 100%;
+  border: none;
+  border-radius: var(--border-rounded);
+  background-color: var(--color-green);
+}
+.auth-question { 
+    font-size:  var(--font-smd);
+    color: var(--color-white);
+    font-weight: var(--font-bold);
+    word-spacing: 0.15rem;
+}
+
+.signin-signup {
+    color: var(--color-light-blue);
+    text-decoration: none;
+    font-weight: var(--font-bold);
+}
+.rocket-img {
+  width: 240px;
+}

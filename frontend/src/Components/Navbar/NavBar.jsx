@@ -11,7 +11,7 @@ function NavBar() {
         Spark savers
         <img src={electricIcon} className="navbar-icon" alt="icon" />
       </p>
-      <Link className="navbar-login" to={"/login"}>
+      <Link className="navbar-login" to={"/signin"}>
         Sign in
       </Link>
     </nav>
