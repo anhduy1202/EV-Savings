@@ -1,0 +1,25 @@
+.inputpageelectric-container{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    justify-content: space-evenly;
+    margin-left: 10%;
+}
+
+
+.inputpageelectric-name,.inputpageelectric-model{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputpageelectric-select{
+    width: 10%;
+    padding: 0.25em 1em;
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: var(--border-rounded);
+    border: 1px solid var(--color-green);
+    background-color: black;
+    font-weight: var(--font-xbold);
+    font-size: var(--font-md);
+}
