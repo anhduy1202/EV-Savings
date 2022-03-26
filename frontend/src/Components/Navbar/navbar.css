@@ -45,6 +45,8 @@
 
 .user-item {
   margin: 0.25em 0;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
   transition: 200ms ease-in-out;
 }
