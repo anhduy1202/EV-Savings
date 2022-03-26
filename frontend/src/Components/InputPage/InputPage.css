@@ -1,0 +1,53 @@
+/* Ellipse  */
+
+.inputpage-ellipse{
+    margin-left: 30%;
+    margin-top: 10%;
+    position:absolute;
+    width: 525px;
+    height: 500px;
+    background: linear-gradient(180deg, rgba(44, 255, 186, 0.66) -6.26%, rgba(36, 172, 132, 0.13) 73.58%);
+    filter: blur(30px);
+    border-radius: 50%
+}
+
+
+
+
+
+.inputpage-container{
+    display:flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40%;
+    height: 30vh;
+    margin-top: 15%;
+    margin-left:24%;
+}
+
+.inputpage-header{
+    position: relative;
+    text-align: center;
+    color: var(--color-green);
+    font-weight: var( --font-xbold);
+    font-size: var(--font-xxlg);
+    -webkit-text-stroke: 1px #151924;
+}
+
+.inputpage-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.inputpage-choice{
+    padding: 0.25em 1em;
+    color: var(--color-green);
+    text-decoration: none;
+    border-radius: var(--border-rounded);
+    border: 3px solid var(--color-green);
+    background-color: black;
+    font-weight: var(--font-xbold);
+    font-size: var(--font-xlg);
+}
