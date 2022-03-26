@@ -1,8 +1,8 @@
 /* Ellipse  */
 
 .inputpage-ellipse{
-    margin-left: 30%;
-    margin-top: 10%;
+    left: 35%;
+    top: 30%;
     position:absolute;
     width: 525px;
     height: 500px;
@@ -16,14 +16,13 @@
 
 
 .inputpage-container{
-    display:flex;
+    display: flex;
+    text-align: center;
     position: absolute;
     flex-direction: column;
-    justify-content: space-around;
-    width: 40%;
-    height: 30vh;
-    margin-top: 15%;
-    margin-left:24%;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .inputpage-header{
@@ -38,16 +37,18 @@
 .inputpage-button-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .inputpage-choice{
-    padding: 0.25em 1em;
+    cursor: pointer;
+    padding: 0.25em;
+    margin: 0.5em ;
     color: var(--color-green);
     text-decoration: none;
     border-radius: var(--border-rounded);
     border: 3px solid var(--color-green);
     background-color: black;
     font-weight: var(--font-xbold);
-    font-size: var(--font-xlg);
+    font-size: var(--font-lg);
 }
