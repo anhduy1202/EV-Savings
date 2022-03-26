@@ -22,3 +22,33 @@
     width: 64px;
     height: 64px;
 }
+.user-avatar {
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+}
+
+.user-menu {
+  transition:200ms ease-in-out;
+  position: absolute;
+  text-align: start;
+  padding: 1em;
+  right: 4%;
+  top:9%;
+  border-radius: var(--border-rounded-md);
+  color: var(--color-dark-green);
+  background-color: var(--color-white);
+}
+
+.user-item {
+  margin: 0.25em 0;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+
+.user-item:hover{
+  color: var(--color-button-hover);
+}
