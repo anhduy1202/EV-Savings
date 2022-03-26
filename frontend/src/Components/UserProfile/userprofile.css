@@ -27,13 +27,14 @@
   text-align: center;
   width: 80%;
   justify-content: center;
+  align-items: center;
   border-radius: var(--border-rounded);
   color: var(--color-dark-green);
   background-color: var(--color-green);
 }
 
 .user-dashboard-item {
-    font-size: var(--font-mdlg);
+  font-size: var(--font-mdlg);
   margin: 0 1em;
   cursor: pointer;
   text-decoration: none;
