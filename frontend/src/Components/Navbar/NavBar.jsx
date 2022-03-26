@@ -32,7 +32,7 @@ function NavBar() {
           />
           {isOpened && (
             <div className="user-menu">
-              <p className="user-item">My Profile </p>
+              <Link to="/profile" className="user-item">My Profile </Link>
               <p className="user-item">Settings</p>
               <p className="user-item">Favorites</p>
               <p className="user-item">Sign out</p>
