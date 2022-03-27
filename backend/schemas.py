@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 
 class CarBase(BaseModel):
-    id: int
     manufacturer: str
     modelName: str
     tankSize: float

@@ -11,19 +11,16 @@ app = FastAPI()
 models.Base.metadata.create_all(engine)
 #migrates tables into db (if it does not exist)
 
-
-
 @app.post('/car',status_code=status.HTTP_201_CREATED)
 def create_car(request: schemas.Car, db: Session = Depends(get_db)):
-    new_car= models.Car(
-    id=request.id,
-    manufacturer=request.manufacturer,
-    modelName= request.modelName,
-    tankSize=request.tankSize,
-    batterySize=request.batterySize,
-    elecPrice=request.elecPrice,
-    gasPrice=request.gasPrice,
-   energySource=request.energySource
+    new_car = models.Car(
+    manufacturer = request.manufacturer,
+    modelName = request.modelName,
+    tankSize = request.tankSize,
+    batterySize = request.batterySize,
+    elecPrice = request.elecPrice,
+    gasPrice = request.gasPrice,
+   energySource = request.energySource
     )
     db.add(new_car)
     db.commit()
@@ -34,16 +31,12 @@ def create_car(request: schemas.Car, db: Session = Depends(get_db)):
 def destroy(id,db: Session = Depends(get_db)):
     car=db.query(models.Car).filter(models.Car.id == id).delete(synchronize_session=False)
     db.commit()
-    return {'deleted'}
-
-
-
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 @app.get('/cars')
 def all(db: Session = Depends(get_db)):
    cars = db.query(models.Car).all()
    return cars
-
 
 @app.get('/cars{id}')
 def show(id,response:Response, db: Session = Depends(get_db),status_code=200):
@@ -51,3 +44,12 @@ def show(id,response:Response, db: Session = Depends(get_db),status_code=200):
    if not car:
       response.status_code = status.HTTP_404_NOT_FOUND
    return car
+
+@app.put('/cars{id}')
+def update(id, request: schemas.Car, db: Session = Depends(get_db)):
+    car = db.query(models.Car).filter(models.Car.id == id).update(request.dict())
+    if not car.first():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"Car ID {id} not found")
+        car.update(request)
+        db.commit()
+        return 'updated'
