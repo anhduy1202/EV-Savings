@@ -2,7 +2,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
-class CarBase(BaseModel):
+class Car(BaseModel):
     manufacturer: str
     modelName: str
     tankSize: float
@@ -11,7 +11,9 @@ class CarBase(BaseModel):
     gasPrice : float
     energySource : str
 
-class Car(CarBase):
+class ShowCar(BaseModel):  #schema used in get requests to not show all data
+    manufacturer: str
+    modelName: str
     class Config():
         orm_mode = True
 
@@ -23,13 +25,6 @@ class User(BaseModel):
 class ShowUser(BaseModel):
     name:str
     email:str
-    class Config():
-        orm_mode = True
-
-class ShowCar(BaseModel):
-    id: str
-    manufacturer: str
-    modelName: str
     class Config():
         orm_mode = True
 
