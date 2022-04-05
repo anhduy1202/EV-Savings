@@ -1,7 +1,7 @@
 
 from sqlalchemy import Column, Integer, Float, String
-from db import Base
-
+from db_system import db, schemas, models
+from .db import Base
 
 class Car(Base):
     __tablename__ = "cars"
