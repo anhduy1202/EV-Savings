@@ -5,7 +5,7 @@ from db_system.hashing import Hash
 from fastapi import HTTPException, status, Depends, Response
 
 
-def create_user(request: schemas.Car, db: Session = Depends(db.get_db)):
+def create_user(request: schemas.User, db: Session = Depends(db.get_db)):
     new_user=models.User(
     name = request.name,
     email = request.email,
