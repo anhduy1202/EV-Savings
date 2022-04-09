@@ -2,14 +2,17 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
-class Car(BaseModel):
+class G_car(BaseModel):
     manufacturer: str
     modelName: str
     tankSize: float
+    gasPrice : float
+
+class E_car(BaseModel):
+    manufacturer: str
+    modelName: str
     batterySize: float
     elecPrice: float
-    gasPrice : float
-    energySource : str
 
 class ShowCar(BaseModel):  #schema used in get requests to not show all data
     manufacturer: str
