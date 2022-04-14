@@ -1,46 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../Layout/Layout";
 import "./InputPageElectric.css";
 
-
-
 function InputPageElectric() {
-    /*Select will eventually turn into a <select multiple={true} value={['B', 'C']}>
- */
-    return(
-        <Layout>
-        <section className="inputpageelectric-container">
-            <h2 class="inputpageelectric-header">Choose your vehicle type</h2>
-            <form>
-                <label class="inputpageelectric-name">
-                Select Vehicle name
-                <select class ="inputpageelectric-select">
-                    <option value="Tesla">Tesla</option>
-                    <option value="Mazda">Mazda</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="ETC">ETC</option>
-                </select>
-                </label>
-            </form>
-            
-            <form>
-                <label class="inputpageelectric-model">
-                Select Vehicle Model
-                <select class ="inputpageelectric-select">
-                    <option value="3">3</option>
-                    <option value="S">S</option>
-                    <option value="Y">Y</option>
-                    <option value="X">X</option>
-                </select>
-                </label>
-            </form>
+  /*Select will eventually turn into a <select multiple={true} value={['B', 'C']}>
+   */
+  const [vehicleName,setName] = useState();
+  const [vehicleModel,setModel] = useState();
 
+  return (
+    <Layout>
+      <section className="inputpageelectric-container">
+        <h2 className="inputpageelectric-header">Choose your vehicle type</h2>
+        <form>
+          <DropdownSelect
+            name="Name"
+            label="inputpageelectric-name"
+            select="inputpageelectric-select"
+            options={["Tesla", "Mazda", "Toyota", "ETC"]}
+            elementState={vehicleName}
+            setState={setName}
+          />
+        </form>
 
-        </section>
-        </Layout>
-    )
-
+        <form>
+          <DropdownSelect
+            name="Model"
+            label="inputpageelectric-model"
+            select="inputpageelectric-select"
+            options={["3", "S", "Y", "X"]}
+            elementState={vehicleModel}
+            setState={setModel}
+          />
+        </form>
+      </section>
+    </Layout>
+  );
 }
 
+function DropdownSelect(props) {
+  const { name, label, select, options, elementState, setState } = props;
+  return (
+    <label className={label}>
+      Select Vehicle {name}
+      <select className={select} onChange={(e) => setState(e.target.value)}>
+        {options.map((option) => {
+          return <option value={option}> {option}</option>;
+        })}
+      </select>
+      <h1> {elementState} </h1>
+    </label>
+  );
+}
 
 export default InputPageElectric;
