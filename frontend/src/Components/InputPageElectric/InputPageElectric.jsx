@@ -5,8 +5,8 @@ import "./InputPageElectric.css";
 function InputPageElectric() {
   /*Select will eventually turn into a <select multiple={true} value={['B', 'C']}>
    */
-  const [vehicleName,setName] = useState();
-  const [vehicleModel,setModel] = useState();
+  const [vehicleName, setName] = useState();
+  const [vehicleModel, setModel] = useState();
 
   return (
     <Layout>
@@ -18,18 +18,13 @@ function InputPageElectric() {
             label="inputpageelectric-name"
             select="inputpageelectric-select"
             options={["Tesla", "Mazda", "Toyota", "ETC"]}
-            elementState={vehicleName}
             setState={setName}
           />
-        </form>
-
-        <form>
           <DropdownSelect
             name="Model"
             label="inputpageelectric-model"
             select="inputpageelectric-select"
             options={["3", "S", "Y", "X"]}
-            elementState={vehicleModel}
             setState={setModel}
           />
         </form>
@@ -39,7 +34,7 @@ function InputPageElectric() {
 }
 
 function DropdownSelect(props) {
-  const { name, label, select, options, elementState, setState } = props;
+  const { name, label, select, options, setState } = props;
   return (
     <label className={label}>
       Select Vehicle {name}
@@ -48,7 +43,6 @@ function DropdownSelect(props) {
           return <option value={option}> {option}</option>;
         })}
       </select>
-      <h1> {elementState} </h1>
     </label>
   );
 }
