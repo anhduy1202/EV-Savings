@@ -7,12 +7,14 @@ class G_car(BaseModel):
     modelName: str
     tankSize: float
     gasPrice : float
+    website : str
 
 class E_car(BaseModel):
     manufacturer: str
     modelName: str
     batterySize: float
     elecPrice: float
+    website : str
 
 class ShowCar(BaseModel):  #schema used in get requests to not show all data
     manufacturer: str
