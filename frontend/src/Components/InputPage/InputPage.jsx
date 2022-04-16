@@ -9,6 +9,7 @@ function InputPage() {
     
     return(
         <Layout>
+        <div class="inputpage-ellipse"></div>
         <section className="inputpage-container"> 
             <h2 class ="inputpage-header">Choose your vehicle type</h2>
                 <div class="inputpage-button-container">
@@ -16,7 +17,7 @@ function InputPage() {
                     <Link className="inputpage-choice" to={"/gasoline"}>Gasoline</Link>
                 </div>
         </section>
-        <div class="inputpage-ellipse"></div>
+
         </Layout>
     )
 
