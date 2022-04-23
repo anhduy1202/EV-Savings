@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../Layout/Layout";
+import Layout from "../../Layout/Layout";
 import "./InputPageElectric.css";
 
 function InputPageElectric() {
@@ -64,7 +64,7 @@ function InputPageElectric() {
   );
 }
 
-function DropdownSelect(props) {
+export function DropdownSelect(props) {
   const { title, options, setState } = props;
   return (
     <>
@@ -81,7 +81,7 @@ function DropdownSelect(props) {
   );
 }
 
-function InputField(props) {
+export function InputField(props) {
   const { label, setState } = props;
   return (
     <>
