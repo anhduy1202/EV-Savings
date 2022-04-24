@@ -1,15 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../Layout/Layout";
 import "./InputPageElectric.css";
+
+const electricVehicles = [
+  {
+    id: "e1",
+    name: "Tesla",
+    model: ["3", "S", "Y", "Z"],
+  },
+  {
+    id: "e2",
+    name: "Toyota",
+    model: ["EBX70"],
+  },
+  {
+    id: "e3",
+    name: "Honda",
+    model: ["EZY90"],
+  },
+];
 
 function InputPageElectric() {
   /*Select will eventually turn into a <select multiple={true} value={['B', 'C']}>
    */
   const [vehicleName, setName] = useState("");
   const [vehicleModel, setModel] = useState("");
+  const [electricVehicles, setElectricVehicles] = useState([
+    {
+      id: "e1",
+      name: "Tesla",
+      model: ["3", "S", "Y", "Z"],
+    },
+    {
+      id: "e2",
+      name: "Toyota",
+      model: ["EBX70"],
+    },
+    {
+      id: "e3",
+      name: "Honda",
+      model: ["EZY90"],
+    },
+  ]);
+  const [filteredModel, setFilteredModel] = useState(electricVehicles[0].model);
+  let filteredVehicles = [
+    {
+      id: "e1",
+      name: "Tesla",
+      model: ["3", "S", "Y", "Z"],
+    },
+    {
+      id: "e2",
+      name: "Toyota",
+      model: ["EBX70"],
+    },
+    {
+      id: "e3",
+      name: "Honda",
+      model: ["EZY90"],
+    },
+  ];
   const [avgMPGe, setAvgMPGe] = useState(0);
   const [yearlyMileage, setYearlyMileage] = useState(0);
   const [electricPrice, setElectricPrice] = useState(0);
+
+  useEffect(() => {
+    if (vehicleName.length > 0) {
+      filteredVehicles = electricVehicles.filter((e) => e.name == vehicleName);
+      setFilteredModel(filteredVehicles[0].model);
+    }
+  }, [vehicleName]);
 
   //When user click Continue, we submit the form
   const submitInput = (e) => {
@@ -24,7 +84,6 @@ function InputPageElectric() {
     //Check the console on web to see the data we're passing
     console.log(savedData);
   };
-
   return (
     <Layout>
       <section>
@@ -34,13 +93,15 @@ function InputPageElectric() {
         >
           <div className="left-container">
             <DropdownSelect
+              type="name"
               title="Select Vehicle Name"
-              options={["Tesla", "Mazda", "Toyota", "ETC"]}
+              options={electricVehicles}
               setState={setName}
             />
             <DropdownSelect
+              type="model"
               title="Select Vehicle Model"
-              options={["3", "S", "Y", "X"]}
+              options={filteredModel}
               setState={setModel}
             />
           </div>
@@ -65,7 +126,7 @@ function InputPageElectric() {
 }
 
 export function DropdownSelect(props) {
-  const { title, options, setState } = props;
+  const { type, title, options, setState } = props;
   return (
     <>
       <label className="inputpageelectric-dropdown">{title}</label>
@@ -73,9 +134,19 @@ export function DropdownSelect(props) {
         className="inputpageelectric-select"
         onChange={(e) => setState(e.target.value)}
       >
-        {options.map((option) => {
-          return <option value={option}> {option}</option>;
-        })}
+        {type == "name" ? (
+          <>
+            {options.map((option) => {
+              return <option key={option.id} value={option.name}> {option.name}</option>;
+            })}
+          </>
+        ) : (
+          <>
+            {options.map((option,idx) => {
+              return <option key={idx} value={option}> {option}</option>;
+            })}
+          </>
+        )}
       </select>
     </>
   );
