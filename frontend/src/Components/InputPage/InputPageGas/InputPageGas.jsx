@@ -54,11 +54,13 @@ function InputPageGas() {
         >
           <div className="left-container">
             <DropdownSelect
+              type="name"
               title="Select Vehicle Name"
               options={["Honda", "Toyota", "BMW"]}
               setState={setName}
             />
             <DropdownSelect
+              type="model"
               title="Select Vehicle Model"
               options={[
                 "Civic",
