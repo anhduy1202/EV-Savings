@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../Layout/Layout";
 import {
   DropdownSelect,
@@ -7,23 +7,6 @@ import {
 import "../InputPageElectric/InputPageElectric.css";
 
 //Dummy data
-const gasVehicles = [
-  {
-    id: "g1",
-    name: "Honda",
-    model: ["Civic", "Accord", "Oddyssey"],
-  },
-  {
-    id: "g2",
-    name: "Toyota",
-    model: ["Camry", "Corolla", "Venza"],
-  },
-  {
-    id: "g3",
-    name: "BMW",
-    model: ["5 Series", "7 Series 740i"],
-  },
-];
 
 function InputPageGas() {
   const [vehicleName, setName] = useState("");
@@ -31,6 +14,48 @@ function InputPageGas() {
   const [avgMPG, setAvgMPG] = useState(0);
   const [yearlyMileage, setYearlyMileage] = useState(0);
   const [gasPrice, setGasPrice] = useState(0);
+  const [gasVehicle, setGasVehicles] = useState([
+    {
+      id: "g1",
+      name: "Honda",
+      model: ["Civic", "Accord", "Oddyssey"],
+    },
+    {
+      id: "g2",
+      name: "Toyota",
+      model: ["Camry", "Corolla", "Venza"],
+    },
+    {
+      id: "g3",
+      name: "BMW",
+      model: ["5 Series", "7 Series 740i"],
+    },
+  ]);
+  const [filteredModel,setFilteredModel] = useState(gasVehicle[0].model);
+  let filteredVehicles = [
+    {
+      id: "g1",
+      name: "Honda",
+      model: ["Civic", "Accord", "Oddyssey"],
+    },
+    {
+      id: "g2",
+      name: "Toyota",
+      model: ["Camry", "Corolla", "Venza"],
+    },
+    {
+      id: "g3",
+      name: "BMW",
+      model: ["5 Series", "7 Series 740i"],
+    },
+  ];
+  
+  useEffect(() => {
+    if (vehicleName.length > 0) {
+      filteredVehicles = gasVehicle.filter((e) => e.name == vehicleName);
+      setFilteredModel(filteredVehicles[0].model);
+    }
+  }, [vehicleName]);
 
   //When user click Continue, we submit the form
   const submitInput = (e) => {
@@ -56,22 +81,13 @@ function InputPageGas() {
             <DropdownSelect
               type="name"
               title="Select Vehicle Name"
-              options={["Honda", "Toyota", "BMW"]}
+              options={gasVehicle}
               setState={setName}
             />
             <DropdownSelect
               type="model"
               title="Select Vehicle Model"
-              options={[
-                "Civic",
-                "Accord",
-                "Oddyssey",
-                "Camry",
-                "Corolla",
-                "Venza",
-                "5 Series",
-                "7 Series 740i",
-              ]}
+              options={filteredModel}
               setState={setModel}
             />
           </div>
