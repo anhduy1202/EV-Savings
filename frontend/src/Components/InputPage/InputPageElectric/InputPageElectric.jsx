@@ -2,27 +2,9 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../Layout/Layout";
 import "./InputPageElectric.css";
 
-const electricVehicles = [
-  {
-    id: "e1",
-    name: "Tesla",
-    model: ["3", "S", "Y", "Z"],
-  },
-  {
-    id: "e2",
-    name: "Toyota",
-    model: ["EBX70"],
-  },
-  {
-    id: "e3",
-    name: "Honda",
-    model: ["EZY90"],
-  },
-];
+
 
 function InputPageElectric() {
-  /*Select will eventually turn into a <select multiple={true} value={['B', 'C']}>
-   */
   const [vehicleName, setName] = useState("");
   const [vehicleModel, setModel] = useState("");
   const [electricVehicles, setElectricVehicles] = useState([
