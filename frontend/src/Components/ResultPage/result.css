@@ -1,0 +1,84 @@
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result-heading {
+  color: var(--color-green);
+  font-size: var(--font-xlg);
+}
+
+.display {
+  margin-top: 2rem;
+  border-radius: var(--border-rounded-md);
+  border: 2px solid var(--color-green);
+  padding: 2em;
+  color: white;
+}
+
+.display-item {
+  margin-top: 1rem;
+}
+
+.name,
+.model,
+.gallon {
+  color: var(--color-green);
+}
+
+.save-label {
+  margin-top: 2rem;
+  color: var(--color-fade-green);
+}
+
+.save-btn {
+  margin-top: 2em;
+  width: 20%;
+  justify-self: flex-end;
+  grid-column: 2;
+  padding: 0.25em 1em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-dark-green);
+  font-weight: var(--font-xbold);
+  font-size: var(--font-md);
+  border-radius: var(--border-rounded-md);
+  background-color: var(--color-green);
+  transition: 200ms ease-in-out;
+  margin: 2em 0;
+}
+
+.saved-btn {
+    margin-top: 2em;
+    width: 20%;
+    justify-self: flex-end;
+    grid-column: 2;
+    padding: 0.25em 1em;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-dark-green);
+    font-weight: var(--font-xbold);
+    font-size: var(--font-md);
+    border-radius: var(--border-rounded-md);
+    transition: 200ms ease-in-out;
+    margin: 2em 0;
+    background-color: var(--color-fade-green);
+}
+
+.save-btn:hover {
+  background-color: var(--color-button-hover);
+}
+
+.go-back {
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+
+.go-back:hover {
+  color: var(--color-button-hover);
+}

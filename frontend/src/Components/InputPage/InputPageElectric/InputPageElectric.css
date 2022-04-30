@@ -25,7 +25,8 @@
 .user-input {
   margin: 1em 0;
   cursor: pointer;
-  max-width: 30%;
+  max-width: 40%;
+  text-align: start;
   padding: 0.25em 1em;
   color: var(--color-white);
   text-decoration: none;

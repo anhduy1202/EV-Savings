@@ -9,6 +9,7 @@
 
 :root {
   /* Color pallette */
+  --color-fade-green: #66bea0;
   --color-green: #2CFFBA;
   --color-button-hover: #00a06b;
   --color-dark-green: #151924;
