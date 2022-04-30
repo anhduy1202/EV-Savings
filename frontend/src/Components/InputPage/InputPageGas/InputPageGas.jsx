@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../Layout/Layout";
+import { v4 as uuidv4 } from "uuid";
 import {
   DropdownSelect,
   InputField,
 } from "../InputPageElectric/InputPageElectric";
 import "../InputPageElectric/InputPageElectric.css";
+import { useDispatch } from "react-redux";
+import { setVehicle } from "../../../redux/vehicleSlice";
 
 //Dummy data
 
@@ -14,44 +17,60 @@ function InputPageGas() {
   const [vehicleModel, setModel] = useState("Civic");
   const [avgMPG, setAvgMPG] = useState(0);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [yearlyMileage, setYearlyMileage] = useState(0);
   const [gasPrice, setGasPrice] = useState(0);
   const [gasVehicle, setGasVehicles] = useState([
     {
+      id: "g0",
+      name: "Select name",
+      model: [],
+      price: [],
+    },
+    {
       id: "g1",
       name: "Honda",
-      model: ["Civic", "Accord", "Oddyssey"],
+      model: ["Select model", "Civic", "Accord", "Oddyssey"],
       price: [12, 15, 20],
     },
     {
       id: "g2",
       name: "Toyota",
-      model: ["Camry", "Corolla", "Venza"],
+      model: ["Select model", "Camry", "Corolla", "Venza"],
       price: [13, 12, 11],
     },
     {
       id: "g3",
       name: "BMW",
-      model: ["5 Series", "7 Series 740i"],
+      model: ["Select model", "5 Series", "7 Series 740i"],
       price: [14, 15],
     },
   ]);
   const [filteredModel, setFilteredModel] = useState(gasVehicle[0].model);
   let filteredVehicles = [
     {
+      id: "g0",
+      name: "Select name",
+      model: [],
+      price: [],
+    },
+    {
       id: "g1",
       name: "Honda",
-      model: ["Civic", "Accord", "Oddyssey"],
+      model: ["Select model", "Civic", "Accord", "Oddyssey"],
+      price: [12, 15, 20],
     },
     {
       id: "g2",
       name: "Toyota",
-      model: ["Camry", "Corolla", "Venza"],
+      model: ["Select model", "Camry", "Corolla", "Venza"],
+      price: [13, 12, 11],
     },
     {
       id: "g3",
       name: "BMW",
-      model: ["5 Series", "7 Series 740i"],
+      model: ["Select model", "5 Series", "7 Series 740i"],
+      price: [14, 15],
     },
   ];
 
@@ -68,6 +87,8 @@ function InputPageGas() {
     let filteredOne = filteredVehicles.find((e) => e.name == vehicleName);
     let priceIndex = filteredOne.model.indexOf(vehicleModel);
     const savedData = {
+      type: "gas",
+      carId: uuidv4(),
       vehicleName: vehicleName,
       vehicleModel: vehicleModel,
       avgMPG: avgMPG,
@@ -76,7 +97,7 @@ function InputPageGas() {
       pricePerMile: filteredOne.price[priceIndex - 1],
     };
     //Check the console on web to see the data we're passing
-    console.log(savedData);
+    dispatch(setVehicle(savedData));
     navigate("/result");
   };
   return (

@@ -1,0 +1,21 @@
+.info-model, .info-cost, .cheapest {
+    margin-top: 1rem;
+}
+.info-container {
+    width: 80%;
+}
+.cheapest {
+    background-color: var(--color-dark-green);
+    color:white;
+    padding: 0.25rem;
+    width: 14%;
+    font-size: vaR(--font-md);
+    border-radius: var(--border-rounded);
+    text-align: center;
+}
+.empty {
+    margin-top: 2rem;
+    color:var(--color-fade-green);
+    text-align: center;
+    font-size: vaR(--font-lg);
+}

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setVehicle } from "../../../redux/vehicleSlice";
 import Layout from "../../Layout/Layout";
+import { v4 as uuidv4 } from "uuid";
 import "./InputPageElectric.css";
 
 function InputPageElectric() {
@@ -81,6 +82,8 @@ function InputPageElectric() {
     let filteredOne = filteredVehicles.find((e) => e.name == vehicleName);
     let priceIndex = filteredOne.model.indexOf(vehicleModel);
     const savedData = {
+      type: "electric",
+      carId: uuidv4(),
       vehicleName: vehicleName,
       vehicleModel: vehicleModel,
       avgMPGe: avgMPGe,

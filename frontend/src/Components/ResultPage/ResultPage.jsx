@@ -10,11 +10,20 @@ const ResultPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [gallonUsed, setGallon] = useState(
-    (vehicle.yearlyMileage / vehicle.avgMPGe).toFixed(2)
+    vehicle.type === "electric"
+      ? (vehicle.yearlyMileage / vehicle.avgMPGe).toFixed(2)
+      : (vehicle.yearlyMileage / vehicle.avgMPG).toFixed(2)
   );
   const [isSaved, setSave] = useState(false);
+  const [cost, setCost] = useState(
+    ((gallonUsed * vehicle.pricePerMile) / 100).toFixed(2)
+  );
   const saveResult = () => {
-    dispatch(saveVehicle(vehicle));
+    const data = {
+      ...vehicle,
+      cost: cost,
+    };
+    dispatch(saveVehicle(data));
     setSave(true);
   };
 
@@ -36,9 +45,7 @@ const ResultPage = () => {
           </p>
           <p className="display-item">
             Cost:
-            <span className="gallon">
-              {` $ ${((gallonUsed * vehicle.pricePerMile) / 100).toFixed(2)}`}
-            </span>
+            <span className="gallon">{` $ ${cost}`}</span>
           </p>
         </div>
         <p className="save-label"> Save result ? </p>
