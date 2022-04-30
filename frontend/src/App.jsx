@@ -6,6 +6,7 @@ import InputPage from "./Components/InputPage/InputPage";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import InputPageElectric from "./Components/InputPage/InputPageElectric/InputPageElectric";
 import InputPageGas from "./Components/InputPage/InputPageGas/InputPageGas";
+import ResultPage from "./Components/ResultPage/ResultPage";
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/input" element={<InputPage />} />
           <Route path="/electric" element={<InputPageElectric />} />
           <Route path="/gasoline" element={<InputPageGas />} />
+          <Route path="/result" element={<ResultPage />} />
         </Routes>
       </div>
     </Router>
