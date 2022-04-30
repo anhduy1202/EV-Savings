@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Layout from "../Layout/Layout";
+import Collections from "./Collections/Collections";
 import "./userprofile.css";
 
 function UserProfile() {
@@ -9,6 +11,7 @@ function UserProfile() {
     avatar:
       "https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png",
   });
+  const collections = useSelector((state) => state.user.user.vehicles);
   return (
     <Layout>
       <section className="userprofile-container">
@@ -17,9 +20,10 @@ function UserProfile() {
           <p className="username"> {user.username} </p>
         </div>
         <div className="user-dashboard">
-            <p className="user-dashboard-item">About</p>
-            <p className="user-dashboard-item">Saved</p>
-            <p className="user-dashboard-item">My Collections</p>
+          <p className="user-dashboard-item">My Collections</p>
+        </div>
+        <div className="collection-container">
+          <Collections collections={collections} />
         </div>
       </section>
     </Layout>
