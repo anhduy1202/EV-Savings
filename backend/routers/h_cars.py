@@ -4,7 +4,7 @@ from fastapi import Depends, status, Response, APIRouter
 from db_system import db, schemas, models
 from crud import h_cars_crud
 
-router = APIRouter()
+router = APIRouter()   
 router= APIRouter(tags=['hybrid cars'])
 
 @router.get('/hybrid cars', response_model = List[schemas.ShowCar])
